@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.project.mesto.nomorepartiesxyz.ru/';
 
 function _getDataResponse(res) {
 	return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
