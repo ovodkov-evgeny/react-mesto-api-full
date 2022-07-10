@@ -1,0 +1,10 @@
+.form__input_type-dark {
+	padding: 6px 2px;
+	border-bottom: 2px solid #ccc;
+	color: #fff;
+}
+
+.form__input_type-dark:-webkit-autofill {
+	box-shadow: 0 0 0 30px #000 inset;
+	-webkit-text-fill-color: #fff;
+}

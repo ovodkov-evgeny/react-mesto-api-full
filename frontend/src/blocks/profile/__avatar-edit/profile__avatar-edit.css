@@ -1,0 +1,8 @@
+.profile__avatar-edit {
+	background-image: url(../../../images/icon-editBig.svg);
+	background-color: unset;
+	width: 26px;
+	height: 26px;
+	border: none;
+	cursor: pointer;
+}

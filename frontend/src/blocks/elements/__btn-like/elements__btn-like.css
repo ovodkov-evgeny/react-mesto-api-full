@@ -1,0 +1,17 @@
+.elements__btn-like {
+	margin: 0;
+	margin-bottom: 3px;
+	padding: 0;
+	width: 22px;
+	height: 19px;
+	align-self: center;
+	background-image: url(../../../images/icon-heart.svg);
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: opacity .3s;
+}
+
+.elements__btn-like:hover {
+	opacity: .5;
+}

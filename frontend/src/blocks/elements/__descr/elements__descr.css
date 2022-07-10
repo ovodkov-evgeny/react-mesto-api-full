@@ -1,0 +1,7 @@
+.elements__descr {
+	display: flex;
+	justify-content: space-between;
+	max-width: 246px;
+	margin-left: 17px;
+	margin-bottom: 22px;
+}
