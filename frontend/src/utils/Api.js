@@ -10,6 +10,7 @@ class Api {
 
 	getProfileInfo() {
 		return fetch(`${this._baseUrl}/users/me`, {
+			credentials: 'include',
 			headers: this._headers
 		})
 		.then(this._getDataResponse);
@@ -18,6 +19,7 @@ class Api {
 	setProfileInfo(userInfo) {
 		return fetch(`${this._baseUrl}/users/me`, {
 			method: 'PATCH',
+			credentials: 'include',
 			headers: this._headers,
 			body: JSON.stringify({
 				name: userInfo.name,
@@ -30,6 +32,7 @@ class Api {
 	addNewCard(cardInfo) {
 		return fetch(`${this._baseUrl}/cards`, {
 			method: 'POST',
+			credentials: 'include',
 			headers: this._headers,
 			body: JSON.stringify({
 				name: cardInfo.name,
@@ -42,6 +45,7 @@ class Api {
 	deleteCard(id) {
 		return fetch(`${this._baseUrl}/cards/${id}`, {
 			method: 'DELETE',
+			credentials: 'include',
 			headers: this._headers,
 		})
 		.then(this._getDataResponse);
@@ -51,12 +55,14 @@ class Api {
 		if(toLike) {
 			return fetch(`${this._baseUrl}/cards/${id}/likes`, {
 				method: 'PUT',
+				credentials: 'include',
 				headers: this._headers,
 			})
 			.then(this._getDataResponse);
 		} else {
 			return fetch(`${this._baseUrl}/cards/${id}/likes`, {
 				method: 'DELETE',
+				credentials: 'include',
 				headers: this._headers,
 			})
 			.then(this._getDataResponse);
@@ -66,6 +72,7 @@ class Api {
 	editAvatar(avatarLink) {
 		return fetch(`${this._baseUrl}/users/me/avatar`, {
 			method: 'PATCH',
+			credentials: 'include',
 			headers: this._headers,
 			body: JSON.stringify({
 				avatar: avatarLink,
@@ -76,6 +83,7 @@ class Api {
 
 	getInitialCards() {
 		return fetch(`${this._baseUrl}/cards`, {
+			credentials: 'include',
 			headers: this._headers
 		})
 		.then(this._getDataResponse);
@@ -83,7 +91,7 @@ class Api {
 }
 
  export const api = new Api({
-	baseUrl: 'https://api.project.mesto.nomorepartiesxyz.ru/',
+	baseUrl: 'https://api.project.mesto.nomorepartiesxyz.ru',
 	headers: {
 		'Content-Type': 'application/json'
 	}
