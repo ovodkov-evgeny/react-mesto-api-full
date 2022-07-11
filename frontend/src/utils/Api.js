@@ -51,22 +51,15 @@ class Api {
 		.then(this._getDataResponse);
 	}
 
-	changeLikeCardStatus(id, toLike) {
-		if(toLike) {
-			return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-				method: 'PUT',
-				credentials: 'include',
-				headers: this._headers,
-			})
-			.then(this._getDataResponse);
-		} else {
-			return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-				method: 'DELETE',
-				credentials: 'include',
-				headers: this._headers,
-			})
-			.then(this._getDataResponse);
-		}
+	changeLikeCardStatus(id, isLiked) {
+		return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+			method: `${isLiked ? "PUT" : "DELETE"}`,
+			credentials: 'include',
+			headers: {
+				authorization: this._headers.authorization,
+			},
+		})
+		.then(this._getDataResponse);
 	}
 
 	editAvatar(avatarLink) {
