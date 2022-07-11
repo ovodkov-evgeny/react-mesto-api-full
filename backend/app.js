@@ -3,7 +3,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { celebrate, Joi, errors } = require('celebrate');
-const cors = require('cors');
+// const cors = require('cors');
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -16,27 +17,23 @@ const NotFoundError = require('./errors/NotFoundError');
 const { PORT = 3000 } = process.env;
 
 const app = express();
+app.use(cors);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-const allowedCors = [
-  'https://project.mesto.nomorepartiesxyz.ru',
-  'http://project.mesto.nomorepartiesxyz.ru',
-  'localhost:3000',
-  'http://localhost:3000',
-];
+// const allowedCors = [
+//   'https://project.mesto.nomorepartiesxyz.ru',
+//   'http://project.mesto.nomorepartiesxyz.ru',
+//   'localhost:3000',
+//   'http://localhost:3000',
+// ];
 
 app.use(cookieParser());
 app.use(express.json());
 app.use(requestLogger);
-
-app.use(cors({
-  origin: '*',
-  credentials: true,
-}));
 
 app.get('/crash-test', () => {
   setTimeout(() => {
