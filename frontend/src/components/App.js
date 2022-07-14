@@ -107,6 +107,7 @@ function App() {
 			.then(newCard => {
 				setCards([newCard, ...cards]);
 				closeAllPopups();
+				console.log(card);
 			})
 			.catch((err) => console.log(err))
 			.finally(() => setLoading(false));
@@ -200,6 +201,7 @@ function App() {
 				.then(([userData, cardData]) => {
 					setCurrentUser(userData);
 					setCards(cardData);
+					cardData.reverse();
 				})
 				.catch((err) => console.log(`Ошибка ${err}`))
 				.finally(() => { });

@@ -19,19 +19,12 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
 	function handleDeleteClick() {
 		onCardDelete(card);
+		console.log(card);
 	}
 
 	return (
 		<>
-			<img src={card.link} alt={card.name} className="elements__img" onClick={handleClick}/>
-			<div className="elements__descr">
-				<h3 className="elements__title">{card.name}</h3>
-				<div className="elements__like-wrapper">
-					<button className={`elements__btn-like ${likeButtonClassName}`} onClick={handleLikeClick} type="button" aria-label="Like"></button>
-					<span className="elements__like-count">{card.likes.length}</span>
-				</div>
-			</div>
-			{isOwn ? (
+		{isOwn ? (
 				<button
 					className="elements__btn-delete"
 					onClick={handleDeleteClick}
@@ -41,6 +34,14 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 			) : (
 				''
 			)}
+			<img src={card.link} alt={card.name} className="elements__img" onClick={handleClick}/>
+			<div className="elements__descr">
+				<h3 className="elements__title">{card.name}</h3>
+				<div className="elements__like-wrapper">
+					<button className={`elements__btn-like ${likeButtonClassName}`} onClick={handleLikeClick} type="button" aria-label="Like"></button>
+					<span className="elements__like-count">{card.likes.length}</span>
+				</div>
+			</div>
 		</>
 	);
 }
