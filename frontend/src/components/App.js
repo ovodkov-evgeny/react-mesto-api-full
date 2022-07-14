@@ -107,7 +107,6 @@ function App() {
 			.then(newCard => {
 				setCards([newCard, ...cards]);
 				closeAllPopups();
-				console.log(card);
 			})
 			.catch((err) => console.log(err))
 			.finally(() => setLoading(false));
